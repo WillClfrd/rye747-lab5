@@ -22,7 +22,7 @@ public abstract class Chasmosaurine implements Dinosaur{
      * dietType is called to return whether the Dinosaur is a carnivore or not based on the value of isVeg
      * */
     public String toString() {
-        return getType().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
+        return getTypeString().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
     }
 
     //getName returns the name attribute of the Dinosaur object
@@ -30,8 +30,10 @@ public abstract class Chasmosaurine implements Dinosaur{
         return name;
     }
 
-    //getType is called to return the type attribute from the Sauropod class and the myType(Sauropod subType) attribute from the relevant subclass
-    public String getType() {
+    public String getType(){ return type; }
+
+    //getTypeString is called to return the type attribute from the Sauropod class and the myType(Sauropod subType) attribute from the relevant subclass
+    public String getTypeString() {
         return type + " - " + getSubType();
     }
 

@@ -1,6 +1,11 @@
 package edu.utsa.cs3443.rye747_lab5.model;
 
+import android.content.res.AssetManager;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 //William Clifford rye747
 /*The Park class is used to construct Park objects
@@ -8,16 +13,13 @@ import java.util.ArrayList;
  * */
 public class Park {
  private String name;
- private int maxCap;
  private ArrayList<Zone> zones;
- private Dinosaur Dinosaurs[] = new Dinosaur[0];
  
  /*The Park constructor takes a String in as the name for the park and an int as the maximum capacity for the park
   * A park object is constructed using these parameters
  */
- public Park(String pName, int mCap) {
+ public Park(String pName) {
 	 name = pName;
-	 maxCap = mCap;
      zones = new ArrayList<Zone>();
  }
  
@@ -26,21 +28,123 @@ public class Park {
   * */
  public String toString() {
 	 String parkStr = "Welcome to " + getName() + "!\n- - - - - - - - - - - - -\n";
-	 int i;
-	 for(i = 0; i < Dinosaurs.length; ++i) {
-		 parkStr += "* " + Dinosaurs[i].toString() + "\n";
-	 }
 	 return parkStr;
  }
- 
+
+ public void loadZones(AssetManager manager){
+     ArrayList<String> dinoTypes = new ArrayList<String>();
+     boolean[] diets = new boolean[0];
+     int dietsSize = 0;
+     Scanner read;
+     int i;
+     int j;
+
+     try{
+         InputStream zonesFile = manager.open("zones.csv");
+         read = new Scanner(zonesFile);
+         String line;
+         String[] lineTokens;
+
+         while(read.hasNextLine()){
+             line = read.nextLine();
+             lineTokens = line.split(",");
+             zones.add(new Zone(lineTokens[0], lineTokens[1], lineTokens[2], Integer.parseInt(lineTokens[3])));
+         }
+         read.close();
+     }
+     catch(IOException e){
+         throw new RuntimeException(e);
+     }
+
+     try{
+         InputStream dinosFile = manager.open("types.csv");
+         read = new Scanner(dinosFile);
+         String line;
+         String[] lineTokens;
+
+         while(read.hasNextLine()){
+             line = read.nextLine();
+             lineTokens = line.split(",");
+             dinoTypes.add(lineTokens[0]);
+             diets = new boolean[++dietsSize];
+             if(lineTokens[1].equalsIgnoreCase("true")){
+                 diets[dietsSize - 1] = true;
+             }
+             else{
+                 diets[dietsSize - 1] = false;
+             }
+         }
+         read.close();
+     }
+     catch(IOException e){
+         throw new RuntimeException(e);
+     }
+
+     try{
+         InputStream dinosFile = manager.open("dinos.csv");
+         read = new Scanner(dinosFile);
+         String line;
+         String[] lineTokens;
+
+         while(read.hasNextLine()){
+             line = read.nextLine();
+             lineTokens = line.split(",");
+             for(i = 0; i < zones.size(); ++i){
+                 if(lineTokens[2].equals(zones.get(i).getAbbreviation())){
+                     zones.get(i).addDino(createDinosaur(lineTokens[0], lineTokens[1]));
+                 }
+                 for(j = 0; j < dinoTypes.size(); ++j)
+                 if(zones.get(i).getDino(zones.get(i).getDinosSize() - 1).getType().equalsIgnoreCase(dinoTypes.get(j))){
+                     zones.get(i).getDino(zones.get(i).getDinosSize() - 1).setVeg(diets[j]);
+                 }
+             }
+         }
+     }
+     catch(IOException e){
+         throw new RuntimeException(e);
+     }
+ }
+
+ private Dinosaur createDinosaur(String name, String type){
+     Dinosaur newDino;
+
+     if(type.equals("Apatosaurus")){
+         newDino = new Apatosaurus(name, true);
+     }
+     else if(type.equals("Brachiosaurus")){
+         newDino = new Brachiosaurus(name, true);
+     }
+     else if(type.equals("Dilophosaurus")){
+         newDino = new Dilophosaurus(name, true);
+     }
+     else if(type.equals("Gallimimus")){
+         newDino = new Gallimimus(name, true);
+     }
+     else if(type.equals("Indominous")){
+         newDino = new Indominous(name, true);
+     }
+     else if(type.equals("Stegosaurus")){
+         newDino = new Stegosaurus(name, true);
+     }
+     else if(type.equals("Triceratops")){
+         newDino = new Triceratops(name, true);
+     }
+     else if(type.equals("Tyrannosaurus")){
+         newDino = new Tyrannosaurus(name, true);
+     }
+     else if(type.equals("Velociraptor")){
+         newDino = new Velociraptor(name, true);
+     }
+     else{
+         newDino = new Apatosaurus(name, true);
+     }
+
+     return newDino;
+ }
+
  //getName is used to return the name of the park as a String
  public String getName() {
 	 return name;
- }
- 
- //getMaxCap is used to return the park object's max capacity
- public int getMaxCap() {
-	 return maxCap;
  }
 
  public Zone getZone(int index){
@@ -51,39 +155,8 @@ public class Park {
  public void setName(String newName) {
 	 name = newName;
  }
- 
- //setMaxCap is used to set the park object maxCap to a new value that is passed in as a parameter to setMaxCap
- public void setMaxCap(int newMaxCap) {
-	 maxCap = newMaxCap;
+
+ public void addZone(Zone zone){
+     zones.add(zone);
  }
- 
- /*The addDino method takes a Dinosaur object as a parameter
-  *the method then checks if dino can be added to the array
-  *if dino can be added, a temp array is made so that we have an array of Dinosaur objects that is 1 larger than Dinosaurs
-  *dino is inserted as the last element in the temp array, Dinosaurs is then set equal to the temp array
-  *if dino cannot be added due to max capacity being reached, an error message is printed
-  * */
- public void addDino(Dinosaur dino) {
-	 if(Dinosaurs.length < maxCap) {
-		 Dinosaur dinosaursCopy[] = copyDinos();
-		 dinosaursCopy[Dinosaurs.length] = dino;
-		 Dinosaurs = dinosaursCopy;
-	 }
-	 else {
-		 System.out.println("ERROR: MAX CAPACITY REACHED - Unable to add new dinosaur to " + getName() + ".");
-	 }
- }
- 
- //copyDinos() takes the current Dinosaurs array and makes a temporary array one size larger, then copies Dinosaurs elements into the temp array and returns the temporary array. This is only used in addDino to resize Dinosaurs
- public Dinosaur[] copyDinos(){
-	 Dinosaur tempArr[] = new Dinosaur[Dinosaurs.length + 1];
-	 int i;
-	 
-	 for(i = 0; i < Dinosaurs.length; ++i) {
-		 tempArr[i] = Dinosaurs[i];
-	 }
-	 
-	 return tempArr;
- }
- 
 }

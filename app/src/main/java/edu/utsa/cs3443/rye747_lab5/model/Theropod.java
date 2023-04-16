@@ -29,9 +29,11 @@ public abstract class Theropod implements Dinosaur{
 	public String getName() {
 		return name;
 	}
-	
-	//getType is called to return the type attribute from the Theropod class and the myType(Theropod subType) attribute from the relevant subclass
-	public String getType() {
+
+	public String getType(){ return type; }
+
+	//getTypeString is called to return the type attribute from the Sauropod class and the myType(Sauropod subType) attribute from the relevant subclass
+	public String getTypeString() {
 		return type + " - " + getSubType();
 	}
 	

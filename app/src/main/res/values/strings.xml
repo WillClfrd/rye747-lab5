@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">rye747-lab5</string>
+    <string name="placeholder_string">placeholder text</string>
+    <string name="relocate_dino_underlined"><b><u>RELOCATE A DINOSAUR</u></b></string>
+    <string name="relocate_dinosaur"><b>RELOCATE A DINOSAUR</b></string>
+    <string name="dinosaur_name"><b>Dinosaur Name:</b></string>
+    <string name="new_zone"><b>New Zone:</b></string>
+    <string name="relocate"><b>RELOCATE</b></string>
+    <string name="park_map"><b>PARK\nMAP</b></string>
 </resources>

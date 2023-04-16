@@ -1,4 +1,7 @@
 package edu.utsa.cs3443.rye747_lab5.model;
+
+import java.util.ArrayList;
+
 //William Clifford rye747
 /*The Park class is used to construct Park objects
  * Park objects have a name stored as a String, a maximum capacity stored as an int, and a list of Dinosaurs in the park stored as an array of Dinosaur objects
@@ -6,6 +9,7 @@ package edu.utsa.cs3443.rye747_lab5.model;
 public class Park {
  private String name;
  private int maxCap;
+ private ArrayList<Zone> zones;
  private Dinosaur Dinosaurs[] = new Dinosaur[0];
  
  /*The Park constructor takes a String in as the name for the park and an int as the maximum capacity for the park
@@ -14,6 +18,7 @@ public class Park {
  public Park(String pName, int mCap) {
 	 name = pName;
 	 maxCap = mCap;
+     zones = new ArrayList<Zone>();
  }
  
  /*toString formats the park information into a string by calling the getName method for the park and the Dinosaur toString method for each item in the Dinosaurs array
@@ -36,6 +41,10 @@ public class Park {
  //getMaxCap is used to return the park object's max capacity
  public int getMaxCap() {
 	 return maxCap;
+ }
+
+ public Zone getZone(int index){
+     return zones.get(index);
  }
  
  //setName is used to set the park object name to a new String that is passed in as a parameter to setName

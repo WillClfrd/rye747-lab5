@@ -1,4 +1,7 @@
 package edu.utsa.cs3443.rye747_lab5.model;
+
+import android.util.Log;
+
 //William Clifford rye747
 /*The Theropod class implements the Dinosaur interface, contains many important methods for Dinosaur objects, and can be used to instantiate Dinosaur objects
  * */
@@ -49,7 +52,7 @@ public abstract class Theropod implements Dinosaur{
 	
 	//setVeg is used to set the Theropod class isVeg attribute to the value of newVeg 
 	public void setVeg(boolean newVeg) {
-		isVeg = newVeg;
+		this.isVeg = newVeg;
 	}
 	
 	//setType is called to set the type attribute in the Theropod class to the value of newType

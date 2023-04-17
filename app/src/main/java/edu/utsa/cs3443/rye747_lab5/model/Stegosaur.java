@@ -1,4 +1,7 @@
 package edu.utsa.cs3443.rye747_lab5.model;
+
+import android.util.Log;
+
 //William Clifford rye747
 /*The Stegosaur class implements the Dinosaur interface, contains many important methods for Dinosaur objects, and can be used to instantiate Dinosaur objects
  * */

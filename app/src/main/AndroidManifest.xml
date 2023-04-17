@@ -20,6 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="edu.utsa.cs3443.rye747_lab5.ZoneActivity" />
+        <activity android:name="edu.utsa.cs3443.rye747_lab5.DinoActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

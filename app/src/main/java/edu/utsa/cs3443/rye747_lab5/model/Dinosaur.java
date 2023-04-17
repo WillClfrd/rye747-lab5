@@ -15,6 +15,6 @@ public interface Dinosaur {
 	
 	//the getType method will return the type value of the Dinosaur object
 	public abstract String getType();
-
-	public abstract void setVeg(boolean diet);
+	public abstract String getSubType();
+	public abstract void setVeg(boolean newVeg);
 }

@@ -1,76 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/zone_layout"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
-    <LinearLayout
-        android:layout_height="125dp"
-        android:layout_width="match_parent">
-
-        <ImageView
-            android:layout_height="125dp"
-            android:layout_width="150dp"
-            app:srcCompat="@drawable/park_logo"
-            android:background="@color/white"/>
-
-        <TextView
-            android:id="@+id/zone_header"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:paddingStart="20dp"
-            android:fontFamily="serif"
-            android:textSize="30sp"
-            android:layout_gravity="center|start"
-            android:text="@string/placeholder_string"/>
-    </LinearLayout>
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/zone_layout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:paddingStart="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/number_of_guests_textview"
+        <LinearLayout
+            android:layout_height="125dp"
+            android:layout_width="match_parent">
+
+            <ImageView
+                android:layout_height="125dp"
+                android:layout_width="150dp"
+                app:srcCompat="@drawable/park_logo"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/zone_header"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:paddingStart="20dp"
+                android:fontFamily="serif"
+                android:textSize="35sp"
+                android:layout_gravity="center|start"
+                android:text="@string/placeholder_string"/>
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
-            android:fontFamily="serif"
-            android:textSize="23sp"
-            android:text="@string/placeholder_string"/>
-
-        <TextView
-            android:id="@+id/number_of_dinosaurs_textview"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            android:paddingTop="5dp"
-            android:paddingBottom="10dp"
-            android:fontFamily="serif"
-            android:textSize="23sp"
-            android:text="@string/placeholder_string"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
-
-        <TextView
-            android:id="@+id/relocate_dinosaur_button"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:clickable="true"
-            android:fontFamily="serif"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            android:background="@drawable/rounded_square"
-            android:text="@string/relocate_dinosaur"/>
+            android:paddingStart="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/number_of_guests_textview"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:paddingTop="10dp"
+                android:paddingBottom="5dp"
+                android:fontFamily="serif"
+                android:textSize="27sp"
+                android:text="@string/placeholder_string"/>
+
+            <TextView
+                android:id="@+id/number_of_dinosaurs_textview"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:fontFamily="serif"
+                android:textSize="27sp"
+                android:text="@string/placeholder_string"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/relocate_dinosaur_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:clickable="true"
+                android:fontFamily="serif"
+                android:textColor="@color/white"
+                android:textSize="23sp"
+                android:background="@drawable/rounded_square"
+                android:text="@string/relocate_dinosaur"/>
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -7,4 +7,6 @@
     <string name="new_zone"><b>New Zone:</b></string>
     <string name="relocate"><b>RELOCATE</b></string>
     <string name="park_map"><b>PARK\nMAP</b></string>
+    <string name="dinosaur_name_hint">Dinosaur Name</string>
+    <string name="new_zone_hint">New Zone Abbreviation</string>
 </resources>

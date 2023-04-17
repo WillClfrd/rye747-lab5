@@ -68,7 +68,7 @@
                 android:id="@+id/dino_name_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/placeholder_string"
+                android:hint="@string/dinosaur_name_hint"
                 android:inputType="text"
                 app:boxBackgroundMode="outline"
                 tools:ignore="SpeakableTextPresentCheck" />
@@ -98,7 +98,7 @@
                 android:id="@+id/new_zone_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="@string/placeholder_string"
+                android:hint="@string/new_zone_hint"
                 android:inputType="text"
                 app:boxBackgroundMode="outline"
                 tools:ignore="SpeakableTextPresentCheck" />

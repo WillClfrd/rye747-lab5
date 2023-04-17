@@ -103,11 +103,9 @@ public class Park {
 
          if(isInitialRead) {
              dinosFile = manager.open("dinos.csv");
-             Log.d("Input Stream Type", "Asset manager");
          }
          else{
              dinosFile = context.openFileInput("dinos.csv");
-             Log.d("Input Stream Type", "Context.openFileInput");
          }
          Scanner read = new Scanner(dinosFile);
          String line;
@@ -122,7 +120,6 @@ public class Park {
                  }
              }
              String tempLine = lineTokens[0] + "," + lineTokens[1] + "," + lineTokens[2] + "\n";
-             Log.d("Line read in Park", tempLine);
              lines.add(tempLine);
          }
          dinosFile.close();
@@ -134,7 +131,6 @@ public class Park {
          }
          outFile.close();
 
-         Log.d("Diets array size", String.valueOf(dietsSize));
          for(i = 0; i < zones.size(); ++i){
              for(j = 0; j < zones.get(i).getDinosSize(); ++j){
                  for(int z = 0; z < dinoTypes.size(); ++z){

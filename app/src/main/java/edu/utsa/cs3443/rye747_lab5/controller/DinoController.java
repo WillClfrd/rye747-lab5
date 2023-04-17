@@ -88,7 +88,7 @@ public class DinoController implements View.OnClickListener{
 
             if(validateName(String.valueOf(dinoName.getText())) && validateZone(String.valueOf(newZone.getText()))){
                 moveDino(String.valueOf(dinoName.getText()), String.valueOf(newZone.getText()));
-                Toast.makeText(activity, String.valueOf(dinoName.getText()) + " successfully moved to zone " + String.valueOf(newZone.getText()), Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, String.valueOf(dinoName.getText()) + " successfully moved to zone " + String.valueOf(newZone.getText()).toUpperCase(), Toast.LENGTH_LONG).show();
             }
             else if(validateName(String.valueOf(dinoName.getText()))){
                 Toast.makeText(activity, "ERROR: invalid zone abbreviation", Toast.LENGTH_LONG).show();
@@ -167,7 +167,6 @@ public class DinoController implements View.OnClickListener{
                  }
 
                  String tempLine = lineTokens[0] + "," + lineTokens[1] + "," + lineTokens[2] + "\n";
-                 Log.d("tempLine", tempLine);
                  lines.add(tempLine);
             }
             inStream.close();
@@ -175,7 +174,6 @@ public class DinoController implements View.OnClickListener{
 
             outStream = activity.openFileOutput(filename, activity.MODE_PRIVATE);
             for(i = 0; i < lines.size(); ++i){
-                Log.d("Line to be Written", lines.get(i));
                 outStream.write(lines.get(i).getBytes(StandardCharsets.UTF_8));
             }
 

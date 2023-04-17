@@ -1,20 +1,59 @@
 package edu.utsa.cs3443.rye747_lab5.model;
 
-//William Clifford rye747
-/*The Dinosaur interface is used as a template to declare methods for use in the Sauropod, Theropod, and Stegosaur classes and their subclasses
- * */
+/**
+ * This interface represents Dinosaur objects.
+ * The Dinosaur interface contains method declarations for required inherited method.
+ *
+ * @author William Clifford (rye747)
+ * UTSA CS 3443 - Lab 5
+ * Spring 2023
+ */
 public interface Dinosaur {
-	//the toString method will return a formatted String that will contain the information for a Dinosaur object
+	/**
+	 * Abstract method declaration of toString method.
+	 * Intended to return a formatted string representation of subclass attributes.
+	 *
+	 * @return the formatted string of Dinosaur subclass attributes
+	 */
 	public abstract String toString();
-	
-	//the isVegetarian method will return a boolean value of true if the Dinosaur object has an isVeg value of true and false otherwise
+
+	/**
+	 * Abstract method declaration of isVegetarian method.
+	 * Intended to return boolean value of a Dinosaur subclass attribute.
+	 *
+	 * @return the boolean value of the Dinosaur subclass attribute
+	 */
 	public abstract boolean isVegetarian();
-	
-	//getName will return the name value of the Dinosaur object
+
+	/**
+	 * Abstract method declaration of getName method.
+	 * Intended to return String value of a Dinosaur subclass name attribute.
+	 *
+	 * @return the String value of the Dinosaur subclass name attribute
+	 */
 	public abstract String getName();
-	
-	//the getType method will return the type value of the Dinosaur object
+
+	/**
+	 * Abstract method declaration of getType method.
+	 * Intended to return String value of a Dinosaur subclass type attribute.
+	 *
+	 * @return the String value of the Dinosaur subclass type attribute
+	 */
 	public abstract String getType();
+
+	/**
+	 * Abstract method declaration of getSubType method.
+	 * Intended to return String value of a Dinosaur subclass subType attribute.
+	 *
+	 * @return the String value of the Dinosaur subclass subType attribute
+	 */
 	public abstract String getSubType();
+
+	/**
+	 * Abstract method declaration of the setVeg method.
+	 * Intended to set the value of Dinosaur subclass isVeg attribute to the specified value.
+	 *
+	 * @param newVeg the specified value for assignment to the Dinosaur subclass isVeg attribute
+	 */
 	public abstract void setVeg(boolean newVeg);
 }

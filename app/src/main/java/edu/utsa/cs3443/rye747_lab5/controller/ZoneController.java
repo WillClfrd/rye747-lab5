@@ -31,6 +31,14 @@ import edu.utsa.cs3443.rye747_lab5.ZoneActivity;
 import edu.utsa.cs3443.rye747_lab5.model.Park;
 import edu.utsa.cs3443.rye747_lab5.model.Zone;
 
+/**
+ * This class represents ZoneController objects.
+ * The ZoneController class establishes onClickListeners and handles changes to view elements for the ZoneActivity class.
+ *
+ * @author William Clifford (rye747)
+ * UTSA CS 3443 - Lab 5
+ * Spring 2023
+ */
 public class ZoneController implements View.OnClickListener{
     private ZoneActivity activity;
     private AssetManager manager;
@@ -43,6 +51,12 @@ public class ZoneController implements View.OnClickListener{
     private boolean isInitialRead;
     private String isInitialReadKey = "initial_read";
 
+    /**
+     * Constructs a ZoneController class object with the specified value assigned to the ZoneController object activity attribute.
+     * Initializes the ZoneController object manager, park, isInitialRead, zoneAbbreviation, and currentZone attributes.
+     *
+     * @param activity the object to be assigned to the ZoneController object activity attribute.
+     */
     public ZoneController(ZoneActivity activity){
         this.activity = activity;
         this.manager = activity.getAssets();
@@ -61,6 +75,11 @@ public class ZoneController implements View.OnClickListener{
         loadZoneLayout(currentZone);
     }
 
+    /**
+     * Maintains onClickListeners for views of the ZoneController activity attribute which have been assigned onClickListeners.
+     *
+     * @param view the View object passed as a parameter from the detected click event
+     */
     @Override
     public void onClick(View view){
         if(view.getId() == R.id.relocate_dinosaur_button){
@@ -71,6 +90,11 @@ public class ZoneController implements View.OnClickListener{
         }
     }
 
+    /**
+     * Generates ZoneActivity views based on the specified Zone object.
+     *
+     * @param zone the Zone object specified to be used for generating views
+     */
     public void loadZoneLayout(Zone zone){
         TextView zoneHeader = activity.findViewById(R.id.zone_header);
         TextView numGuestsView = activity.findViewById(R.id.number_of_guests_textview);
@@ -134,6 +158,12 @@ public class ZoneController implements View.OnClickListener{
         }
     }
 
+    /**
+     * Returns a drawable id value based on the String name parameter.
+     *
+     * @param name the String used to determine the correct id value to return
+     * @return the id value determined using the name parameter
+     */
     public int findPicture(String name){
         Bitmap tempBitmap;
         if(name.equalsIgnoreCase("alice")){
@@ -231,6 +261,12 @@ public class ZoneController implements View.OnClickListener{
         }
     }
 
+    /**
+     * Returns a formatted string depending on the value of the isVegeterian parameter.
+     *
+     * @param isVegetarian the boolean value used to determine the return String value
+     * @return the formatted string determined by the value of the isVegetarian parameter
+     */
     public String dietType(boolean isVegetarian){
         if(isVegetarian){
             return "not carnivore";
@@ -240,82 +276,182 @@ public class ZoneController implements View.OnClickListener{
         }
     }
 
+    /**
+     * Returns the activity attribute of the ZoneController object.
+     *
+     * @return the activity attribute of the ZoneController object
+     */
     public ZoneActivity getActivity() {
         return activity;
     }
 
+    /**
+     * Returns the manager attribute of the ZoneController object.
+     *
+     * @return the manager attribute of the ZoneController object
+     */
     public AssetManager getManager() {
         return manager;
     }
 
+    /**
+     * Returns the zoneLayout attribute of the ZoneController object.
+     *
+     * @return the zoneLayout attribute of the ZoneController object
+     */
     public LinearLayout getZoneLayout() {
         return zoneLayout;
     }
 
+    /**
+     * Returns the park attribute of the ZoneController object.
+     *
+     * @return the park attribute of the ZoneController object
+     */
     public Park getPark() {
         return park;
     }
 
+    /**
+     * Returns the key attribute of the ZoneController object.
+     *
+     * @return the key attribute of the ZoneController object
+     */
     public String getKey() {
         return key;
     }
 
+    /**
+     * Returns the dinoKey attribute of the ZoneController object.
+     *
+     * @return the dinoKey attribute of the ZoneController object
+     */
     public String getDinoKey() {
         return dinoKey;
     }
 
+    /**
+     * Returns the zoneAbbreviation attribute of the ZoneController object.
+     *
+     * @return the zoneAbbreviation attribute of the ZoneController object
+     */
     public String getZoneAbbreviation() {
         return zoneAbbreviation;
     }
 
+    /**
+     * Returns the currentZone attribute of the ZoneController object.
+     *
+     * @return the currentZone attribute of the ZoneController object
+     */
     public Zone getCurrentZone() {
         return currentZone;
     }
 
+    /**
+     * Returns the isInitialRead attribute of the ZoneController object.
+     *
+     * @return the isInitialRead attribute of the ZoneController object
+     */
     public boolean isInitialRead() {
         return isInitialRead;
     }
 
+    /**
+     * Returns the isInitialReadKey attribute of the ZoneController object.
+     *
+     * @return the isInitialReadKey attribute of the ZoneController object
+     */
     public String getIsInitialReadKey() {
         return isInitialReadKey;
     }
 
+    /**
+     * Sets the ZoneController object activity attribute to the specified object.
+     *
+     * @param activity the object specified for assignment to the ZoneController object activity attribute
+     */
     public void setActivity(ZoneActivity activity) {
         this.activity = activity;
     }
 
+    /**
+     * Sets the ZoneController object manager attribute to the specified object.
+     *
+     * @param manager the object specified for assignment to the ZoneController object manager attribute
+     */
     public void setManager(AssetManager manager) {
         this.manager = manager;
     }
 
+    /**
+     * Sets the ZoneController object zoneLayout attribute to the specified object.
+     *
+     * @param zoneLayout the object specified for assignment to the ZoneController object zoneLayout attribute
+     */
     public void setZoneLayout(LinearLayout zoneLayout) {
         this.zoneLayout = zoneLayout;
     }
 
+    /**
+     * Sets the ZoneController object park attribute to the specified object.
+     *
+     * @param park the object specified for assignment to the ZoneController object park attribute
+     */
     public void setPark(Park park) {
         this.park = park;
     }
 
+    /**
+     * Sets the ZoneController object key attribute to the specified value.
+     *
+     * @param key the value specified for assignment to the ZoneController object key attribute
+     */
     public void setKey(String key) {
         this.key = key;
     }
 
+    /**
+     * Sets the ZoneController object dinoKey attribute to the specified value.
+     *
+     * @param dinoKey the value specified for assignment to the ZoneController object dinoKey attribute
+     */
     public void setDinoKey(String dinoKey) {
         this.dinoKey = dinoKey;
     }
 
+    /**
+     * Sets the ZoneController object zoneAbbreviation attribute to the specified value.
+     *
+     * @param zoneAbbreviation the value specified for assignment to the ZoneController object zoneAbbreviation attribute
+     */
     public void setZoneAbbreviation(String zoneAbbreviation) {
         this.zoneAbbreviation = zoneAbbreviation;
     }
 
+    /**
+     * Sets the ZoneController object currentZone attribute to the specified object.
+     *
+     * @param currentZone the object specified for assignment to the ZoneController object currentZone attribute
+     */
     public void setCurrentZone(Zone currentZone) {
         this.currentZone = currentZone;
     }
 
+    /**
+     * Sets the ZoneController object isInitialRead attribute to the specified value.
+     *
+     * @param initialRead the value specified for assignment to the ZoneController object isInitialRead attribute
+     */
     public void setInitialRead(boolean initialRead) {
         isInitialRead = initialRead;
     }
 
+    /**
+     * Sets the ZoneController object isInitialReadKey attribute to the specified value.
+     *
+     * @param isInitialReadKey the value specified for assignment to the ZoneController object isInitialReadKey attribute
+     */
     public void setIsInitialReadKey(String isInitialReadKey) {
         this.isInitialReadKey = isInitialReadKey;
     }

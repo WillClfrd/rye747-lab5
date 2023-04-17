@@ -2,7 +2,7 @@ package edu.utsa.cs3443.rye747_lab5.model;
 /**
  * This class represents Chasmosaurine objects.
  * The Chasmosaurine class implements the Dinosaur interface.
- * The Chasmosaurine maintains name, type, and isVeg attributes for Chasmosaurine objects
+ * The Chasmosaurine class maintains name, type, and isVeg attributes for Chasmosaurine objects
  *
  * @author William Clifford (rye747)
  * UTSA CS 3443 - Lab 5

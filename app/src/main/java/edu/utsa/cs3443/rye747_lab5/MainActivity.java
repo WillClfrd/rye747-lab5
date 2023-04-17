@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import edu.utsa.cs3443.rye747_lab5.controller.DinoController;
 import edu.utsa.cs3443.rye747_lab5.controller.MainController;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,5 +38,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void setupClickable(View view){
         view.setOnClickListener(controller);
+    }
+
+    public MainController getController(){
+        return controller;
+    }
+
+    public void setController(MainController controller){
+        this.controller = controller;
     }
 }

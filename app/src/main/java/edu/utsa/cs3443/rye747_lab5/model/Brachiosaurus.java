@@ -1,31 +1,58 @@
 package edu.utsa.cs3443.rye747_lab5.model;
-//William Clifford rye747
-/*The Brachiosaurus class extends the Sauropod class and can be used to create Dinosaur objects
- * */
+/**
+ * This class represents Brachiosaurus objects.
+ * The Brachiosaurus class extends the Sauropod abstract class.
+ * The Brachiosaurus class maintains the myType attribute for Brachiosaurus objects
+ *
+ * @author William Clifford (rye747)
+ * UTSA CS 3443 - Lab 5
+ * Spring 2023
+ */
 public class Brachiosaurus extends Sauropod{
 	private String myType = "Brachiosaurus";
-	
-	//the Brachiosaurus class constructor instantiates an object of the Brachiosaurus subclass by calling the Sauropod class constructor  
+
+	/**
+	 * Constructs Brachiosaurus class objects with the name and isVeg parameters by calling the super class constructor.
+	 *
+	 * @param name the value to pass into the super class constructor for assignment to the super class name attribute
+	 * @param isVege the value to pass into the super class constructor for assignment to the super class isVeg attribute
+	 */
 	public Brachiosaurus(String name, boolean isVege) {
 		super(name, isVege);
-	}	
-	
-	//getMyType is used to return the myType attribute of the Brachiosaurus object
+	}
+
+	/**
+	 * Returns the Brachiosaurus object myType attribute.
+	 *
+	 * @return the value of the Brachiosaurus object myType attribute
+	 */
 	public String getMyType() {
 		return myType;
 	}
-	
-	//the Brachiosaurus toString method calls the super class toString method in order to return relevant class data as a string for output 
+
+	/**
+	 * Returns the string output of the super class toString method.
+	 *
+	 * @return the string output value of the super class toString method
+	 */
 	public String toString() {
 		return super.toString();
 	}
-	
-	//the getSubType method is used to return the Brachiosaurus myType attribute
+
+	/**
+	 * Returns the value of the getMyType method output.
+	 *
+	 * @return the output value of the getMyType method
+	 */
 	public String getSubType() {
 		return getMyType();
 	}
-	
-	//the setMyType method is used to set the value of the myType Brachiosaurus class attribute to the value of newType
+
+	/**
+	 * Sets the value of the Brachiosaurus object myType attribute to the specified value.
+	 *
+	 * @param newType the value specified for assignment to the Brachiosaurus object myType attribute
+	 */
 	public void setMyType(String newType) {
 		myType = newType;
 	}

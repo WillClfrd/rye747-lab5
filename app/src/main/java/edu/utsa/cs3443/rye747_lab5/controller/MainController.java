@@ -12,6 +12,9 @@ import edu.utsa.cs3443.rye747_lab5.R;
 import edu.utsa.cs3443.rye747_lab5.ZoneActivity;
 import edu.utsa.cs3443.rye747_lab5.model.Park;
 
+/**
+ *
+ */
 public class MainController implements View.OnClickListener{
     private MainActivity activity;
     private Intent zoneIntent;
@@ -75,5 +78,61 @@ public class MainController implements View.OnClickListener{
             zoneIntent.putExtra(isInitialReadKey, isInitialRead);
             activity.startActivity(zoneIntent);
         }
+    }
+
+    public MainActivity getActivity() {
+        return activity;
+    }
+
+    public Intent getZoneIntent() {
+        return zoneIntent;
+    }
+
+    public Park getPark() {
+        return park;
+    }
+
+    public AssetManager getManager() {
+        return manager;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getIsInitialReadKey() {
+        return isInitialReadKey;
+    }
+
+    public boolean isInitialRead() {
+        return isInitialRead;
+    }
+
+    public void setActivity(MainActivity activity) {
+        this.activity = activity;
+    }
+
+    public void setZoneIntent(Intent zoneIntent) {
+        this.zoneIntent = zoneIntent;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
+
+    public void setManager(AssetManager manager) {
+        this.manager = manager;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setIsInitialReadKey(String isInitialReadKey) {
+        this.isInitialReadKey = isInitialReadKey;
+    }
+
+    public void setInitialRead(boolean initialRead) {
+        isInitialRead = initialRead;
     }
 }

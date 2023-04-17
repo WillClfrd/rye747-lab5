@@ -1,12 +1,17 @@
 package edu.utsa.cs3443.rye747_lab5.controller;
 
+import static android.graphics.Typeface.create;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -48,6 +53,12 @@ public class DinoController implements View.OnClickListener{
                 this.currentZone = park.getZone(i);
             }
         }
+
+        TextView dinoHeader = activity.findViewById(R.id.dino_header);
+        Typeface boldTypeface = create(Typeface.SERIF, Typeface.BOLD);
+        dinoHeader.setTextColor(Color.BLACK);
+        dinoHeader.setTypeface(boldTypeface);
+        dinoHeader.setText("ZONE " + zoneAbbreviation.toUpperCase());
     }
 
     @Override
@@ -58,7 +69,7 @@ public class DinoController implements View.OnClickListener{
 
             if(validateName(String.valueOf(dinoName.getText())) && validateZone(String.valueOf(newZone.getText()))){
                 moveDino(String.valueOf(dinoName.getText()), String.valueOf(newZone.getText()));
-                Toast.makeText(activity, String.valueOf(dinoName.getText()) + " successfully moved to " + String.valueOf(newZone.getText()), Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, String.valueOf(dinoName.getText()) + " successfully moved to zone " + String.valueOf(newZone.getText()), Toast.LENGTH_LONG).show();
             }
             else if(validateName(String.valueOf(dinoName.getText()))){
                 Toast.makeText(activity, "ERROR: invalid zone abbreviation", Toast.LENGTH_LONG).show();
@@ -136,5 +147,69 @@ public class DinoController implements View.OnClickListener{
         catch(IOException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public DinoActivity getActivity() {
+        return activity;
+    }
+
+    public Park getPark() {
+        return park;
+    }
+
+    public AssetManager getManager() {
+        return manager;
+    }
+
+    public String getZoneAbbreviation() {
+        return zoneAbbreviation;
+    }
+
+    public Zone getCurrentZone() {
+        return currentZone;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getIsInitialReadKey() {
+        return isInitialReadKey;
+    }
+
+    public boolean isInitialRead() {
+        return isInitialRead;
+    }
+
+    public void setActivity(DinoActivity activity) {
+        this.activity = activity;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
+
+    public void setManager(AssetManager manager) {
+        this.manager = manager;
+    }
+
+    public void setZoneAbbreviation(String zoneAbbreviation) {
+        this.zoneAbbreviation = zoneAbbreviation;
+    }
+
+    public void setCurrentZone(Zone currentZone) {
+        this.currentZone = currentZone;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setIsInitialReadKey(String isInitialReadKey) {
+        this.isInitialReadKey = isInitialReadKey;
+    }
+
+    public void setInitialRead(boolean initialRead) {
+        isInitialRead = initialRead;
     }
 }

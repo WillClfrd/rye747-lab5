@@ -239,4 +239,84 @@ public class ZoneController implements View.OnClickListener{
             return "carnivore";
         }
     }
+
+    public ZoneActivity getActivity() {
+        return activity;
+    }
+
+    public AssetManager getManager() {
+        return manager;
+    }
+
+    public LinearLayout getZoneLayout() {
+        return zoneLayout;
+    }
+
+    public Park getPark() {
+        return park;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public String getDinoKey() {
+        return dinoKey;
+    }
+
+    public String getZoneAbbreviation() {
+        return zoneAbbreviation;
+    }
+
+    public Zone getCurrentZone() {
+        return currentZone;
+    }
+
+    public boolean isInitialRead() {
+        return isInitialRead;
+    }
+
+    public String getIsInitialReadKey() {
+        return isInitialReadKey;
+    }
+
+    public void setActivity(ZoneActivity activity) {
+        this.activity = activity;
+    }
+
+    public void setManager(AssetManager manager) {
+        this.manager = manager;
+    }
+
+    public void setZoneLayout(LinearLayout zoneLayout) {
+        this.zoneLayout = zoneLayout;
+    }
+
+    public void setPark(Park park) {
+        this.park = park;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public void setDinoKey(String dinoKey) {
+        this.dinoKey = dinoKey;
+    }
+
+    public void setZoneAbbreviation(String zoneAbbreviation) {
+        this.zoneAbbreviation = zoneAbbreviation;
+    }
+
+    public void setCurrentZone(Zone currentZone) {
+        this.currentZone = currentZone;
+    }
+
+    public void setInitialRead(boolean initialRead) {
+        isInitialRead = initialRead;
+    }
+
+    public void setIsInitialReadKey(String isInitialReadKey) {
+        this.isInitialReadKey = isInitialReadKey;
+    }
 }

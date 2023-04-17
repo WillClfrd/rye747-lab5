@@ -1,71 +1,113 @@
 package edu.utsa.cs3443.rye747_lab5.model;
-
-import android.util.Log;
-
-//William Clifford rye747
-/*The Theropod class implements the Dinosaur interface, contains many important methods for Dinosaur objects, and can be used to instantiate Dinosaur objects
- * */
+/**
+ * This class represents Theropod objects.
+ * The Theropod class implements the Dinosaur interface.
+ * The Theropod class maintains name, type, and isVeg attributes for Theropod objects
+ *
+ * @author William Clifford (rye747)
+ * UTSA CS 3443 - Lab 5
+ * Spring 2023
+ */
 public abstract class Theropod implements Dinosaur{
 	private String name;
 	private String type = "Theropod";
 	private boolean isVeg;
-	
-	/*The Theropod class constructor takes a String and a boolean in as parameters in order to instantiate a Theropod object
-	 * The String parameter is used to assign the Theropod object's name value
-	 * The boolean parameter is used to assign the Theropod object's isVeg value
-	 * */
+
+	/**
+	 * Constructs an object of the Theropod class.
+	 *
+	 * @param pName the value to be assigned to the Theropod class name attribute
+	 * @param isVege the value to be assigned to the Theropod class isVeg attribute
+	 */
 	public Theropod(String pName, boolean isVege) {
 		name = pName;
 		isVeg = isVege;
 	}
-	
-	/*The Theropod toString method formats the Dinosaur object properties into a String for output by calling several methods
-	 * getType is called to return the Dinosaur type and subtype attributes formatted as a string
-	 * getName is called to return the Dinosaur name attribute
-	 * dietType is called to return whether the Dinosaur is a carnivore or not based on the value of isVeg
-	 * */
+
+	/**
+	 * Returns a formatted string representation of Theropod class attributes.
+	 *
+	 * @return the formatted string representation of Theropod class attributes
+	 */
 	public String toString() {
-		return getType().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
+		return getTypeString().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
 	}
-	
-	//getName returns the name attribute of the Dinosaur object
+
+	/**
+	 * Returns the Theropod class name atttribute.
+	 *
+	 * @return the name attribute of the Theropod object
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns the Theropod class type attribute.
+	 *
+	 * @return the type attribute of the Theropod object
+	 */
 	public String getType(){ return type; }
 
-	//getTypeString is called to return the type attribute from the Sauropod class and the myType(Sauropod subType) attribute from the relevant subclass
+	/**
+	 * Returns a string representation of Theropod type attribute along the value returned from the getSubType method.
+	 *
+	 * @return the formatted string representation of the Theropod type attribute combined with the output of the getSubType method
+	 */
 	public String getTypeString() {
 		return type + " - " + getSubType();
 	}
-	
-	//getVeg returns the true/false value of the isVeg attribute
+
+	/**
+	 * Returns the Theropod class isVeg attribute.
+	 *
+	 * @return the isVeg attribute of the Theropod object
+	 */
 	public boolean getVeg() {
 		return isVeg;
 	}
-	
-	//setName is used to set the Theropod class name attribute to the value of newName 
+
+	/**
+	 * Sets the value of the Theropod object name attribute to the specified value.
+	 *
+	 * @param newName the value specified to assign to the Theropod object name attribute
+	 */
 	public void setName(String newName) {
 		name = newName;
 	}
-	
-	//setVeg is used to set the Theropod class isVeg attribute to the value of newVeg 
+
+	/**
+	 * Sets the value of the Theropod object isVeg attribute to the specified value.
+	 *
+	 * @param newVeg the value specified to assign to the Theropod object isVeg attribute
+	 */
 	public void setVeg(boolean newVeg) {
-		this.isVeg = newVeg;
+		isVeg = newVeg;
 	}
-	
-	//setType is called to set the type attribute in the Theropod class to the value of newType
+
+	/**
+	 * Sets the value of the Theropod object type attribute to the specified value.
+	 *
+	 * @param newType the value specified to assign to the Theropod object type attribute
+	 */
 	public void setType(String newType) {
 		type = newType;
 	}
-	
-	//isVegetarian is used to return the value of the isVeg attribute
+
+	/**
+	 * Returns the output of the getVeg method.
+	 *
+	 * @return the output value of the getVeg method
+	 */
 	public boolean isVegetarian() {
 		return getVeg();
 	}
-	
-	//dietType is called to return a string based on the value of isVeg
+
+	/**
+	 * Returns a formatted string representation of the Theropod isVeg attribute.
+	 *
+	 * @return the formatted string representation of the Theropod isVeg attribute
+	 */
 	public String dietType() {
 		if(isVegetarian()) {
 			return "not carnivore";
@@ -74,7 +116,12 @@ public abstract class Theropod implements Dinosaur{
 			return "carnivore";
 		}
 	}
-	
-	//getSubType is abstractly defined in Theropod and is implemented in the Theropod subclasses
+
+	/**
+	 * Abstract method declaration of getSubType method.
+	 * Intended to return type attribute of Theropod subclass objects.
+	 *
+	 * @return the type attribute of the Theropod subclass object
+	 */
 	public abstract String getSubType();
 }

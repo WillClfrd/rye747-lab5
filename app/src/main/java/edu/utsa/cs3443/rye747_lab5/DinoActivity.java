@@ -28,4 +28,12 @@ public class DinoActivity extends AppCompatActivity {
     public void setupClickable(View view){
         view.setOnClickListener(controller);
     }
+
+    public DinoController getController(){
+        return controller;
+    }
+
+    public void setController(DinoController controller){
+        this.controller = controller;
+    }
 }

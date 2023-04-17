@@ -1,71 +1,113 @@
 package edu.utsa.cs3443.rye747_lab5.model;
-
-import android.util.Log;
-
-//William Clifford rye747
-/*The Stegosaur class implements the Dinosaur interface, contains many important methods for Dinosaur objects, and can be used to instantiate Dinosaur objects
- * */
+/**
+ * This class represents Stegosaur objects.
+ * The Stegosaur class implements the Dinosaur interface.
+ * The Stegosaur class maintains name, type, and isVeg attributes for Stegosaur objects
+ *
+ * @author William Clifford (rye747)
+ * UTSA CS 3443 - Lab 5
+ * Spring 2023
+ */
 public abstract class Stegosaur implements Dinosaur{
 	private String name;
 	private String type = "Stegosaur";
 	private boolean isVeg;
-	
-	/*The Stegosaur class constructor takes a String and a boolean in as parameters in order to instantiate a Stegosaur object
-	 * The String parameter is used to assign the Stegosaur object's name value
-	 * The boolean parameter is used to assign the Stegosaur object's isVeg value
-	 * */
+
+	/**
+	 * Constructs an object of the Stegosaur class.
+	 *
+	 * @param pName the value to be assigned to the Stegosaur class name attribute
+	 * @param isVege the value to be assigned to the Stegosaur class isVeg attribute
+	 */
 	public Stegosaur(String pName, boolean isVege) {
 		name = pName;
 		isVeg = isVege;
 	}
-	
-	/*The Stegosaur toString method formats the Dinosaur object properties into a String for output by calling several methods
-	 * getType is called to return the Dinosaur type and subtype attributes formatted as a string
-	 * getName is called to return the Dinosaur name attribute
-	 * dietType is called to return whether the Dinosaur is a carnivore or not based on the value of isVeg
-	 * */
+
+	/**
+	 * Returns a formatted string representation of Stegosaur class attributes.
+	 *
+	 * @return the formatted string representation of Stegosaur class attributes
+	 */
 	public String toString() {
-		return getType().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
+		return getTypeString().replace(" -", ":") + " named " + getName() +  " (" + dietType() + ")";
 	}
-	
-	//getName returns the name attribute of the Dinosaur object
+
+	/**
+	 * Returns the Stegosaur class name atttribute.
+	 *
+	 * @return the name attribute of the Stegosaur object
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Returns the Stegosaur class type attribute.
+	 *
+	 * @return the type attribute of the Stegosaur object
+	 */
 	public String getType(){ return type; }
 
-	//getTypeString is called to return the type attribute from the Sauropod class and the myType(Sauropod subType) attribute from the relevant subclass
+	/**
+	 * Returns a string representation of Stegosaur type attribute along the value returned from the getSubType method.
+	 *
+	 * @return the formatted string representation of the Stegosaur type attribute combined with the output of the getSubType method
+	 */
 	public String getTypeString() {
 		return type + " - " + getSubType();
 	}
-	
-	//getVeg returns the true/false value of the isVeg attribute
+
+	/**
+	 * Returns the Stegosaur class isVeg attribute.
+	 *
+	 * @return the isVeg attribute of the Stegosaur object
+	 */
 	public boolean getVeg() {
 		return isVeg;
 	}
-	
-	//setName is used to set the Stegosaur class name attribute to the value of newName 
+
+	/**
+	 * Sets the value of the Stegosaur object name attribute to the specified value.
+	 *
+	 * @param newName the value specified to assign to the Stegosaur object name attribute
+	 */
 	public void setName(String newName) {
 		name = newName;
 	}
-	
-	//setVeg is used to set the Stegosaur class isVeg attribute to the value of newVeg 
+
+	/**
+	 * Sets the value of the Stegosaur object isVeg attribute to the specified value.
+	 *
+	 * @param newVeg the value specified to assign to the Stegosaur object isVeg attribute
+	 */
 	public void setVeg(boolean newVeg) {
 		isVeg = newVeg;
 	}
-	
-	//setType is called to set the type attribute in the Stegosaur class to the value of newType
+
+	/**
+	 * Sets the value of the Stegosaur object type attribute to the specified value.
+	 *
+	 * @param newType the value specified to assign to the Stegosaur object type attribute
+	 */
 	public void setType(String newType) {
 		type = newType;
 	}
-	
-	//isVegetarian is used to return the value of the isVeg attribute
+
+	/**
+	 * Returns the output of the getVeg method.
+	 *
+	 * @return the output value of the getVeg method
+	 */
 	public boolean isVegetarian() {
 		return getVeg();
 	}
-	
-	//dietType is called to return a string based on the value of isVeg
+
+	/**
+	 * Returns a formatted string representation of the Stegosaur isVeg attribute.
+	 *
+	 * @return the formatted string representation of the Stegosaur isVeg attribute
+	 */
 	public String dietType() {
 		if(isVegetarian()) {
 			return "not carnivore";
@@ -74,7 +116,12 @@ public abstract class Stegosaur implements Dinosaur{
 			return "carnivore";
 		}
 	}
-	
-	//getSubType is abstractly defined in Stegosaur and is implemented in the Stegosaur subclasses
+
+	/**
+	 * Abstract method declaration of getSubType method.
+	 * Intended to return type attribute of Stegosaur subclass objects.
+	 *
+	 * @return the type attribute of the Stegosaur subclass object
+	 */
 	public abstract String getSubType();
 }

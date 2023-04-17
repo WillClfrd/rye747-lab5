@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.utsa.cs3443.rye747_lab5.controller.DinoController;
 import edu.utsa.cs3443.rye747_lab5.controller.MainController;
 import edu.utsa.cs3443.rye747_lab5.controller.ZoneController;
 
@@ -25,5 +26,13 @@ public class ZoneActivity extends AppCompatActivity {
 
     public void setupClickable(View view){
         view.setOnClickListener(controller);
+    }
+
+    public ZoneController getController(){
+        return controller;
+    }
+
+    public void setController(ZoneController controller){
+        this.controller = controller;
     }
 }
